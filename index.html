@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeatBloom - compose beats that bloom</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="neon">
+<header>
+  <div class="brand">
+    <span class="logo">✿</span>
+    <div>
+      <h1>BeatBloom</h1>
+      <p class="tagline">Compose a beat. Watch it bloom. Share the link.</p>
+    </div>
+  </div>
+  <div class="transport">
+    <button id="playBtn" class="play" aria-label="Play">▶ Play</button>
+    <button id="muteBtn" class="mute" aria-pressed="false">🔊 Sound</button>
+    <label class="tempo">Tempo <input id="tempo" type="range" min="70" max="180" value="112"><span id="tempoVal">112</span> BPM</label>
+  </div>
+</header>
+
+<main>
+  <section class="stage">
+    <canvas id="bloom" width="960" height="420" aria-label="Generative visuals that bloom with the beat"></canvas>
+    <div class="themes" role="group" aria-label="Visual theme">
+      <button data-themebtn="neon" class="on">Neon</button>
+      <button data-themebtn="sunset">Sunset</button>
+      <button data-themebtn="mono">Mono</button>
+    </div>
+  </section>
+
+  <section class="sequencer" aria-label="Step sequencer">
+    <div class="grid-scroll">
+      <div class="grid-head">
+        <span class="track-label"></span>
+        <div class="step-numbers" id="stepNumbers"></div>
+      </div>
+      <div id="tracks"></div>
+    </div>
+    <div class="controls">
+      <button id="preset1">Preset: Bloom</button>
+      <button id="preset2">Preset: Night Drive</button>
+      <button id="randomize">Randomize</button>
+      <button id="clear">Clear</button>
+      <button id="share" class="accent">Copy share link</button>
+      <button id="exportWav" class="accent">Export WAV</button>
+    </div>
+    <p class="hint">Click cells to toggle steps. The lead column sets the note - every column is tuned to A minor pentatonic, so anything you draw sounds musical. The whole song lives in the share link: no account, no server.</p>
+  </section>
+</main>
+
+<footer>
+  <p>BeatBloom runs entirely in your browser - Web Audio scheduling, canvas visuals, URL-encoded songs. Built for Next Byte Hacks V5.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
